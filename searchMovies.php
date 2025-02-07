@@ -15,6 +15,10 @@ $detailactors= detailActors($id);
  //echo "<pre>";
  //print_r($detailactors);
 //echo "<pre>";
+$searchMovies = searchMovies($query);
+echo "<pre>";
+ print_r($searchMovies);
+echo "<pre>";
 }
 ?>
  

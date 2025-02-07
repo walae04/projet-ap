@@ -15,9 +15,9 @@ if ( isset($_GET['id']) AND !empty($_GET['id'])){
  //print_r($video);
  //echo"</pre>";
  $actors=getActors($id);
- echo"<pre>";
- print_r($actors);
- echo"</pre>";
+ //echo"<pre>";
+ //print_r($actors);
+ //echo"</pre>";
 }
 // elseif( isset($_GET['']) AND !empty($_GET[''])){ 
 //     $id = $_GET[''];
@@ -49,11 +49,12 @@ if ( isset($_GET['id']) AND !empty($_GET['id'])){
             </div>
           </div>
         </div>
-
+        <div>
+          <br><br><br><br><br><br><br><br><br><br><br><br>
         <iframe width="672" height="378" src="https://www.youtube.com/embed/<?= $video[0]['key']?>" frameborder="0" allowfullscreen></iframe>
+        </div> 
           
-          
-          <div class="container">
+      <div class="container">
        <h4>Les acteurs</h4>
      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
      <?php foreach(array_slice($actors,0,8) as $actor) : ?>  
