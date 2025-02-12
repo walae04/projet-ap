@@ -73,12 +73,30 @@ require_once("get-proxy.php");// au lycée pour faire des requêtes https vous a
       }
       function searchMovies($word){
         $key = "da63548086e399ffc910fbc08526df05";
-        $url =" https://api.themoviedb.org/3/search/movie?api_key=$key&query=$word";
+        $url ="https://api.themoviedb.org/3/search/movie?api_key=$key&query=$word";
         $response = getProxy($url);
         //$response = file_get_contents("https://api.themoviedb.org/3/movie/popular?api_key=$key&language=fr-FR");
        
         $result = json_decode($response, true);
-        return $result;
+        return $result['results'];
+      }
+      function searchActors($word){
+        $key = "da63548086e399ffc910fbc08526df05";
+        $url ="https://api.themoviedb.org/3/search/person?api_key=$key&query=$word";
+        $response = getProxy($url);
+        //$response = file_get_contents("https://api.themoviedb.org/3/movie/popular?api_key=$key&language=fr-FR");
+       
+        $result = json_decode($response, true);
+        return $result['results'];
+      }
+      function topMoviesActors($arg){
+        $key = "da63548086e399ffc910fbc08526df05";
+        $url = "https://api.themoviedb.org/3/person/$arg/movie_credits?api_key=$key";
+        $response = getProxy($url);
+        //$response = file_get_contents("https://api.themoviedb.org/3/movie/popular?api_key=$key&language=fr-FR");
+       
+        $result = json_decode($response, true);
+        return $result['cast'];
       }
 ?>
 

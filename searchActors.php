@@ -3,23 +3,18 @@
 
 <?php  
 // $popularMovies = genreMovies(); 
-//var_dump($_GET["id"]);
+ //var_dump($_GET["id"]);
 //if ( isset($_GET['id']) AND !empty($_GET['id'])){ 
-  //  $id = $_GET['id'];
-    //$genres = genreMovies($id); 
-// echo "<pre>";
-// print_r($genres);
-// echo "<pre>";
+ // $id = $_GET['id'];
 
 //$detailactors= detailActors($id);
- //echo "<pre>";
- //print_r($detailactors);
-//echo "<pre>";
+//$actors=getActors($id);
 $query = $_GET['query'];
-$searchMovies = searchMovies($query);
+$searchActors =searchActors($query);
 //echo "<pre>";
-// print_r($searchMovies);
+ //print_r($searchActors);
 //echo "</pre>";
+
 ?>
  
 
@@ -27,16 +22,16 @@ $searchMovies = searchMovies($query);
   <div class="container">
 
      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-6 g-6">
-     <?php foreach($searchMovies as $movie) : ?>  
-      <?php if (!empty($movie['poster_path'])): ?>
+     <?php foreach($searchActors as $actors) : ?>  
+      <?php  if (!empty($actors['profile_path'])): ?>
         <div class="d-flex align-items-stretchl">
           <div class="card shadow-sm ">
-            <img src="<?php echo 'https://image.tmdb.org/t/p/w780/'.$movie['poster_path']; ?>" >
+            <img src="<?php echo 'https://image.tmdb.org/t/p/w780/'.$actors['profile_path']; ?>" >
             <div class="card-body lh-sm d-flex flex-column">
               <p class=" lh-sm">
-                <strong><?php echo $movie['title']; ?></strong>
+                <strong><?php echo $actors['name']; ?></strong>
               </p>
-              <button type="button" class="btn btn-primary mt-auto"><a class="dropdown-item" href="detailMovies.php?id=<?php echo $movie['id']?>">View</a></button>
+              <button type="button" class="btn btn-primary mt-auto"><a class="dropdown-item" href="detailActors.php?id=<?php echo $actors['id']?>">View</a></button>
             </div>
           </div>
         </div>
@@ -45,6 +40,7 @@ $searchMovies = searchMovies($query);
  
     </div>
   </div>
+  
 </div>
 
 <?php require("footer.php"); ?>

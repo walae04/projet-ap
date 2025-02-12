@@ -45,7 +45,7 @@ if ( isset($_GET['id']) AND !empty($_GET['id'])){
             <?php echo $detail['overview']; ?>
               </p>
               
-             <button type="button" class="btn btn-primary mt-auto">View</button>
+          
             </div>
           </div>
         </div>
